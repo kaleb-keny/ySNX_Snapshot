@@ -13,10 +13,10 @@ bash Miniconda3-latest-Linux-x86_64.sh -p $HOME/miniconda3
 
 ## Installing Enviroment
 
-The enviroment files are available under conda_env folder. Enviroment setup can be done with the one of the below actions:
+The enviroment files are available under env folder. Enviroment setup can be done with the one of the below actions:
 
 ```
-conda create --name ySNX --file=environment.yaml
+conda env create --name ySNX --file=environment.yaml
 ```
 
 ## Conf File
@@ -34,6 +34,7 @@ etherscan: 'XXXXXXXXXXXXXXXXXXXXXXX'
 To run the model for the period spanning between 01-may-2021 and 31-may-2021 simply run the following:
 
 ```
+conda activate ySNX
 python main.py -d 01-may-2021 31-may-2021
 ```
 
