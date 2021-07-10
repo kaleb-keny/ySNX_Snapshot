@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import requests
 from utils.utility import hexToInt
-from collections import namedtuple
 from datetime import datetime
 import time
 
@@ -15,8 +14,6 @@ class prepareData():
                               "fromBlock": hex(1),
                               "toBlock": 'latest',
                               'topics': [w3.keccak(text='Transfer(address,address,uint256)').hex()]}
-        self.pps = namedtuple('point', ['timestamp',
-                                        'price'])
         
     def launchDataGathering(self,startDate,endDate):
 
