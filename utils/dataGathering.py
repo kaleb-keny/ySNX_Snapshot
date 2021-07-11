@@ -56,6 +56,7 @@ class prepareData():
         df["from_address"] = '0x'+ df.topics.str[1].apply(lambda x : x.hex()).str[-40:]
         df["to_address"]   = '0x'+ df.topics.str[2].apply(lambda x : x.hex()).str[-40:]
         df["value"]        = df.data.apply(hexToInt)
+        df                 = df[~(df["from_address"]==df["to_address"])].copy()
         df                 = df[["blockNumber","from_address","to_address","value"]].copy()
         
         finalDF            = pd.DataFrame()
@@ -119,6 +120,6 @@ class prepareData():
         
 #%%
 if __name__ == '__main__':
-    data = prepareData(w3 = w3,conf=conf)
+    data = prepareData(w3 = w3,conf=conf,ySNX=ySNX)
     self = data
     
